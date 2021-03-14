@@ -11,4 +11,4 @@ Herramientas necesarias para correr el framework:
 # install java 11 (skip if already installed)
 # install chromedriver (skip if already installed)
 # clone the project and launch the tests
-git clone https://github.com/emanuel-rytlewski/Experta_Challenge.git
+git clone https://github.com/emanuel-rytlewski/Fravega_Challenge.git
