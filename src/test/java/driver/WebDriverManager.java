@@ -17,9 +17,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class WebDriverManager {
 	protected WebDriver driver;
-	public String URL, Node;
-	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
-
 	 LocalDate time = LocalDate.now(); 
 	 long startTime;
 	 long delta;
@@ -28,29 +25,15 @@ public class WebDriverManager {
 		 delta = currentTime - startTime;
 	 }
 	 
-	 @Parameters({"Port"})
 	 @BeforeMethod
 	 public void setUp() throws Exception {
 			System.setProperty("webdriver.chrome.driver", "resources/chromedriver/chromedriver.exe");
 			driver = new ChromeDriver();
-			//driver = new RemoteWebDriver(new URL("http:127.0.0.1:4444/wd/hub"), DesiredCapabilities.chrome());
 			driver.manage().window().maximize();
 	 		driver.navigate().to("https://www.fravega.com/");
-	 		
 	    }	
-
-	 public void initiateDriver(String Port) throws MalformedURLException {
-     
-		 if(Port.equalsIgnoreCase("9001")){
-			 driver = new RemoteWebDriver(new URL("http:127.0.0.1:4444/wd/hub"), DesiredCapabilities.chrome());
-			 driver.manage().window().maximize();
-		 }
-		 else if(Port.equalsIgnoreCase("9002")){
-			 driver = new RemoteWebDriver(new URL("http:127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
-			 driver.manage().window().maximize();
-		 }
-	 }
 	 
+	 	
 	 @AfterMethod
 	 public void tearDown(ITestResult result) {
 		 System.out.println("El test "+result.getMethod().getDescription()+"(1= Paso satisfactoriamente - 2= No paso satisfactoriamente) resultó: "+result.getStatus());
@@ -58,4 +41,3 @@ public class WebDriverManager {
 		 driver.quit();
 	 }
 }
-
