@@ -1,0 +1,14 @@
+Test:
+Scenario: Realiza la busqueda de heladeras por marca
+1- Go to page https://www.fravega.com/
+2-Enter "Heladeras".
+3-Click on "Boton buscar".
+4-Click on "Heladeras".
+5-Click on "Primera marca"
+6-Assert cantidad de Elementos, Aparicion de la marca en los elementos, Verifica la palabra"Heladeras en el breadcrumb
+
+Herramientas necesarias para correr el framework:
+# install java 11 (skip if already installed)
+# install chromedriver (skip if already installed)
+# clone the project and launch the tests
+git clone https://github.com/emanuel-rytlewski/Experta_Challenge.git
